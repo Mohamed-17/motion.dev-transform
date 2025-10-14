@@ -1,23 +1,19 @@
 import React from "react";
 import * as motion from "motion/react-client";
 function HomePage() {
+  const boxVariants = {
+    init: { opacity: 1, scale: 1 },
+    hide: { opacity: 0.5, scale: 0.8 },
+    click: { opacity: 0, scale: 0 },
+  };
   return (
     <div className="space-x-3 flex">
-      {[...Array(3)].map((_, index) => (
-        <motion.div
-          key={index}
-          className="w-8 h-8 bg-teal-400 rounded-full"
-          animate={{
-            y: [0, -20, 0],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 1,
-            repeatDelay: index * 0.2,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
+      <motion.div
+        variants={boxVariants}
+        className="w-80 h-80 bg-blue-400 rounded-lg"
+        initial={"init"}
+        whileHover={"hide"}
+      ></motion.div>
     </div>
   );
 }
