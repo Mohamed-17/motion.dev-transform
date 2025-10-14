@@ -1,29 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "motion/react";
+import { childVariants, parentVariants } from "@/variants/var";
 function HomePage() {
   const [isVisible, setIsvisible] = useState(false);
-  const parentVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.5,
-      },
-    },
-  };
-  const childVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
+
   return (
     <div>
       <motion.div
