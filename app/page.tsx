@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { motion, useMotionValue } from "motion/react";
+import { motion, useSpring } from "motion/react";
 function HomePage() {
-  const motionScale = useMotionValue(1);
+  const motionScale = useSpring(1);
   const onChangeEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
     motionScale.set(parseFloat(e.target.value));
   };
