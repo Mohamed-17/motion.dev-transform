@@ -1,24 +1,21 @@
-"use client";
 import React from "react";
-import { motion, useSpring } from "motion/react";
+import * as motion from "motion/react-client";
 function HomePage() {
-  const motionScale = useSpring(1);
-  const onChangeEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
-    motionScale.set(parseFloat(e.target.value));
-  };
   return (
-    <div>
-      <motion.div className="box" style={{ scale: motionScale }} />
-
-      <div className="mt-10">
-        <input
-          type="range"
-          onChange={onChangeEvent}
-          step={1}
-          min={1}
-          max={6}
-          defaultValue={1}
-        />
+    <div className=" text-white w-full h-[200vh]">
+      <div className="flex w-full justify-center mt-[150rem] items-center">
+        <div className="flex flex-col gap-10 ">
+          {Array.from({ length: 6 }, (_, index) => index + 1).map((item) => (
+            <motion.div
+              key={item}
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              className="text-white bg-blue-500 w-30 flex justify-center items-center font-bold text-xl h-30 rounded"
+            >
+              item {item}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
